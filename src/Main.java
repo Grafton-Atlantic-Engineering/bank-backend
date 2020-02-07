@@ -29,28 +29,5 @@ public class Main {
             dataRows.add(row.split(",", -1));
         }
         csvReader.close();
-
-        Map<Integer, ArrayList<String[]>> lengthPositions = new HashMap<Integer, ArrayList<String[]>>();
-
-        StringBuilder interpol;
-        for (String[] dataRow : dataRows) {
-            // to keep track of the various lengths
-            if (!lengthPositions.containsKey(dataRow.length)) {
-                lengthPositions.put(dataRow.length, new ArrayList<String[]>());
-            }
-            lengthPositions.get(dataRow.length).add(dataRow);
-
-            interpol = new StringBuilder();
-            for (int k = 0; k < schema.length; k++) {
-                interpol.append('\t');
-                interpol.append(schema[k]);
-                interpol.append(": ");
-                interpol.append(dataRow[k]);
-                interpol.append('\n');
-            }
-            System.out.println(interpol);
-            // send to the GC
-            interpol = null;
-        }
     }
 }
