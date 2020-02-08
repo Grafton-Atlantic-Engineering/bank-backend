@@ -1,18 +1,7 @@
-package TransactionEngine;
-
 import java.util.UUID;
 
 public class Person {
-    private String AccountName;
-    private String Company;
-    private String FirstName;
-    private String LastName;
-    private String Address_1;
-    private String Address_2;
-    private String City;
-    private String State;
-    private String Zip;
-    private String TransactionID;
+    private String AccountName, Company,FirstName,LastName,Address_1,Address_2,City,State,Zip,TransactionID;
 
     public Person(String AccountName, String Company, String FirstName, String LastName, String Address_1, String Address_2, String City, String State, String Zip){
         this.AccountName = AccountName;
@@ -116,23 +105,22 @@ public class Person {
         String tranId = uuid.toString();
         tranId = tranId.replaceAll("\\-","");
         String tranIdReturned = tranId.substring(0,24);
-
         return tranIdReturned;
     }
 
     public String toString(){
         return(
-                  "Account: " + AccountName + "\n" +
-                  "Company: " + Company + "\n" +
-                  "First Name: " + FirstName + "\n" +
-                  "Last Name: " + LastName + "\n" +
-                  "Address 1: " + Address_1 + "\n" +
-                  "Address 2: " + Address_2 + "\n" +
-                  "City: " + City + "\n" +
-                  "State: " + State + "\n" +
-                  "Zip: " + Zip + "\n" +
-                  "TransactionID: " + TransactionID + "\n"
-                );
+                "Account: " + AccountName + "\n" +
+                        "Company: " + Company + "\n" +
+                        "First Name: " + FirstName + "\n" +
+                        "Last Name: " + LastName + "\n" +
+                        "Address 1: " + Address_1 + "\n" +
+                        "Address 2: " + Address_2 + "\n" +
+                        "City: " + City + "\n" +
+                        "State: " + State + "\n" +
+                        "Zip: " + Zip + "\n" +
+                        "TransactionID: " + TransactionID + "\n"
+        );
     }
 }
 
