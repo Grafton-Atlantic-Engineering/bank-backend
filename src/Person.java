@@ -1,3 +1,5 @@
+import java.util.UUID;
+
 public class Person {
     private String AccountName;
     private String Company;
@@ -8,6 +10,7 @@ public class Person {
     private String City;
     private String State;
     private String Zip;
+    private String TransactionID;
 
     public Person(String AccountName, String Company, String FirstName, String LastName, String Address_1, String Address_2, String City, String State, String Zip){
         this.AccountName = AccountName;
@@ -19,6 +22,7 @@ public class Person {
         this.City = City;
         this.State = State;
         this.Zip = Zip;
+        this.TransactionID = generateId();
     }
 
     public String getAccountName(){
@@ -93,6 +97,15 @@ public class Person {
         Zip = zip;
     }
 
+    private String generateId(){
+        UUID uuid = UUID.randomUUID();
+        String tranId = uuid.toString();
+        tranId = tranId.replaceAll("\\-","");
+        String tranIdReturned = tranId.substring(0,24);
+
+        return tranIdReturned;
+    }
+
     public String toString(){
         return(
                   "Account: " + AccountName + "\n" +
@@ -103,7 +116,8 @@ public class Person {
                   "Address 2: " + Address_2 + "\n" +
                   "City: " + City + "\n" +
                   "State: " + State + "\n" +
-                  "Zip: " + Zip + "\n"
+                  "Zip: " + Zip + "\n" +
+                  "TransactionID: " + TransactionID + "\n"
                 );
     }
 }
