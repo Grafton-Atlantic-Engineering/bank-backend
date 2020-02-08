@@ -27,6 +27,18 @@ public class Person {
         this.TransactionID = generateId();
     }
 
+    public Person(String[] paramList) {
+        this.AccountName = paramList[0];
+        this.Company = paramList[1];
+        this.FirstName = paramList[2];
+        this.LastName = paramList[3];
+        this.Address_1 = paramList[4];
+        this.Address_2 = paramList[5];
+        this.City = paramList[6];
+        this.State = paramList[7];
+        this.Zip = paramList[8];
+    }
+
     public String getAccountName(){
         return AccountName;
     }
